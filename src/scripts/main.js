@@ -1,18 +1,18 @@
-import { getPosts, getUsers } from "./data/DataManager.js"
-import { PostList } from "./feed/PostList.js"
-import { NavBar } from "./nav/NavBar.js"
-import { Footer } from "./footer/footer.js"
+import { getPosts, getUsers } from "./data/DataManager.js";
+import { PostList } from "./feed/PostList.js";
+import { NavBar } from "./nav/NavBar.js";
+import { Footer } from "./footer/footer.js";
 
 const showNavBar = () => {
-    const navElement = document.querySelector("nav");
+	const navElement = document.querySelector("nav");
 	navElement.innerHTML = NavBar();
 };
 
 showNavBar();
 
 const showFooter = () => {
-    const footerElement = document.querySelector("footer");
-    footerElement.innerHTML = Footer();
+	const footerElement = document.querySelector("footer");
+	footerElement.innerHTML = Footer();
 };
 
 showFooter();
@@ -27,35 +27,51 @@ showFooter();
 // let entryElement = document.querySelector(".entryForm")
 
 const showPostList = () => {
-    const postElement = document.querySelector(".postList");
-      getPosts().then((allPosts) => {
-          postElement.innerHTML = PostList(allPosts);
-      })
-  };
+	const postElement = document.querySelector(".postList");
+	getPosts().then((allPosts) => {
+		postElement.innerHTML = PostList(allPosts);
+	});
+};
 
 showPostList();
 
 const startGiffyGram = () => {
-    showPostList();
-
-}
+	showPostList();
+};
 startGiffyGram();
 
+getUsers().then((data) => {
+	console.log("User Data", data);
+});
 
-
-getUsers()
-.then(data => {
-    console.log("User Data", data)
-})
-
-getPosts()
-.then(data => {
-    console.log("Post Data", data)
-})
+getPosts().then((data) => {
+	console.log("Post Data", data);
+});
 
 const applicationElement = document.querySelector(".giffygram");
-applicationElement.addEventListener("click", event => {
-	if (event.target.id === "logout"){
-		console.log("You clicked on logout")
+
+applicationElement.addEventListener("click", (event) => {
+	if (event.target.id === "logout") {
+		console.log("You clicked on logout");
 	}
-})
+});
+
+applicationElement.addEventListener("change", (event) => {
+	if (event.target.id === "yearSelection") {
+		const yearAsNumber = parseInt(event.target.value);
+
+		console.log(`User wants to see posts since ${yearAsNumber}`);
+	}
+});
+
+applicationElement.addEventListener("click", (event) => {
+	if (event.target.id === "directMessageIcon") {
+		console.log("You clicked IM");
+	}
+});
+
+applicationElement.addEventListener("click", (event) => {
+	if (event.target.id === "PB") {
+		console.log("It's peanut butter jelly time!");
+	}
+});
