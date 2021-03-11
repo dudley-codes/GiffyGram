@@ -18,7 +18,7 @@ const loggedInUser = {
 }
 
 export const getLoggedInUser = () => {
-	return loggedInUser;
+	return {...loggedInUser};
 }
 
 let postCollection = [];
@@ -35,6 +35,19 @@ export const getPosts = () => {
 // takes the response and then inputs it into postCollection and returns the response
     .then(parsedResponse => {
       postCollection = parsedResponse
-      return parsedResponse;
+      return parsedResponse.reverse();
     })
+}
+
+// function that writes to the JSON file
+export const createPost = postObj => {
+  return fetch("http://localhost:8088/posts", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(postObj)
+
+  })
+      .then(response => response.json())
 }
