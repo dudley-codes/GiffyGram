@@ -1,7 +1,7 @@
 import { getPosts, getUsers, getLoggedInUser, usePostCollection, createPost } from "./data/DataManager.js";
 import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
-import { Footer } from "./footer/footer.js";
+import { Footer, showFilteredPosts } from "./footer/footer.js";
 import { PostEntry, resetForm } from "./feed/PostEntry.js"
 
 
@@ -25,6 +25,8 @@ const showPostList = () => {
 	});
 };
 
+
+// console.log("PostList length", showPostList().length())
 // const showPostEntry = () => {
 // 	const footerElement = document.querySelector(".entryForm");
 // 	footerElement.innerHTML = PostEntry();
@@ -120,27 +122,9 @@ applicationElement.addEventListener("click", (event) => {
 // Filtered data =================================================
 
 
-applicationElement.addEventListener("change", event => {
-	if (event.target.id === "yearSelection") {
-	const yearAsNumber = parseInt(event.target.value)
-	console.log(`User wants to see posts since ${yearAsNumber}`)
-	  //invoke a filter function passing the year as an argument
-	showFilteredPosts(yearAsNumber);
-	}
-	})
 
-	const showFilteredPosts = (year) => {
-	//get a copy of the post collection
-	const epoch = Date.parse(`01/01/${year}`);
-	//filter the data
-	const filteredData = usePostCollection().filter(singlePost => {
-		if (singlePost.timestamp >= epoch) {
-			return singlePost
-	}
-	})
-	const postElement = document.querySelector(".postList");
-		postElement.innerHTML = PostList(filteredData);
-	}
+
+
 
 // Calling all imported functions===============================
 
@@ -150,6 +134,7 @@ const startGiffyGram = () => {
 	showNavBar();
 	showPostEntry();
 	getLoggedInUser();
+	showFilteredPosts();
 	
 	getUsers()
 		.then((data) => {

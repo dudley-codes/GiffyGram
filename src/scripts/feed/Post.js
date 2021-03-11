@@ -9,4 +9,7 @@ export const Posts = (postObject) => {
         <button id="edit--${postObject.id}">Edit</button>
       </section>
     `;
+    
 };
+
+
