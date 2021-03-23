@@ -1,10 +1,9 @@
-import { getPosts, getUsers, getLoggedInUser, deletePost, createPost } from "./data/DataManager.js";
+import { getPosts, getUsers, getLoggedInUser, deletePost, createPost, getSinglePost, updatePost } from "./data/DataManager.js";
 import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
 import { Footer, showFilteredPosts } from "./footer/footer.js";
 import { PostEntry, resetForm } from "./feed/PostEntry.js"
-
-
+import { PostEdit } from "./feed/PostEdit.js"
 
 // Displays app components on the DOM ==========================================
 const showNavBar = () => {
@@ -40,6 +39,7 @@ document.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "newPost__cancel") {
 		clickEvent.preventDefault(); // prevents the page from refreshing
         resetForm(); // resets the form
+		showPostEntry();
     }
 })
 
@@ -51,20 +51,20 @@ document.addEventListener("click", clickEvent => {
         const title = document.querySelector("input[name='postTitle']").value;
         const url = document.querySelector("input[name='postURL']").value;
         const description = document.querySelector("textarea[name='postDescription']").value;
-		//we have not created a user yet - so we will hard code `1` for now.
         const postObject = {
             title: title,
             imageURL: url,
             description: description,
-			userId: 1,
+			userId: getLoggedInUser().id,
             timestamp: Date.now()
         };
 // pulls new post and resets the form without refreshing the page
         createPost(postObject)
-		.then(response =>
-			showPostList())
-		.then(response =>
-			resetForm())
+		.then(() => {
+			showPostList();
+			resetForm();
+		})
+		
     }
 })
 
@@ -105,6 +105,55 @@ applicationElement.addEventListener("click", event => {
 		deletePost(postId)
 		.then(response => {
 			showPostList();
+		})
+	}
+})
+
+// Edit button event listener
+applicationElement.addEventListener("click", event => {
+	event.preventDefault();
+	if (event.target.id.startsWith("edit")) {
+		const postId = event.target.id.split("__")[1];
+		getSinglePost(postId)
+		.then(response => {
+			showEdit(response);
+		})
+	}
+})
+
+// Displays edit form on the DOM
+
+const showEdit = (postObj) => {
+	const entryElement = document.querySelector(".entryForm");
+	entryElement.innerHTML = PostEdit(postObj);
+}
+
+// Post edited post event listener
+
+applicationElement.addEventListener("click", event => {
+	event.preventDefault();
+	if (event.target.id.startsWith("updatePost")) {
+		const postId = event.target.id.split("__")[1];
+		//collect all the details into an object
+		const title = document.querySelector("input[name='postTitle']").value
+		const url = document.querySelector("input[name='postURL']").value
+		const description = document.querySelector("textarea[name='postDescription']").value
+		const timestamp = document.querySelector("input[name='postTime']").value
+		
+		const postObject = {
+			title: title,
+			imageURL: url,
+			description: description,
+			userId: getLoggedInUser().id,
+			timestamp: parseInt(timestamp),
+			id: parseInt(postId)
+		}
+			showPostEntry()
+			updatePost(postObject)
+
+		.then(() => {
+			showPostList();
+			resetForm()
 		})
 	}
 })

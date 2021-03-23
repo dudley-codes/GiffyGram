@@ -1,6 +1,7 @@
 export const PostEntry = () => {
     return `
     <form class="newPost">
+    <h3>Create a new Post</h3>
         <div>
             <input value=""
                     name="postTitle"
