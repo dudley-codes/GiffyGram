@@ -47,32 +47,10 @@
     {
       "title": "Danger Zone!",
       "imageURL": "https://media1.giphy.com/media/IhV4KmuiH69Y2A9WkK/giphy.gif?cid=ecf05e47h3f736vnrn36tkafpuhgw9ek3kllyq34at8adhod&rid=giphy.gif",
-      "description": "Archer",
+      "description": "I'm not crazy, you're crazy!",
       "userId": 1,
       "timestamp": 1615482419138,
       "id": 7
-    },
-    {
-      "imageURL": "https://media3.giphy.com/media/H6uffugom0VsA97rzc/giphy.gif?cid=ecf05e47pugibg0ym65y66iv8uhjz8vvw4yrjxvbymn5g35q&rid=giphy.gif",
-      "description": "Yup",
-      "userId": 1,
-      "timestamp": 1615482485582,
-      "id": 8
-    },
-    {
-      "imageURL": "https://media0.giphy.com/media/VaWZIxqTkzKsU/giphy.gif?cid=ecf05e474wpuzhky9dy5ds5gy8p0yov3n4ux0y1akr984zva&rid=giphy.gif",
-      "description": "asdfasdf",
-      "userId": 1,
-      "timestamp": 1615482539729,
-      "id": 9
-    },
-    {
-      "title": "asdfasd",
-      "imageURL": "https://media4.giphy.com/media/xT8qB3V08emk70OLrG/giphy.gif?cid=ecf05e47dyzhavyde1kh1e3oqihuxp88go0kfxrz0cl8j2ar&rid=giphy.gif",
-      "description": "asdfasdf",
-      "userId": 1,
-      "timestamp": 1615482660126,
-      "id": 10
     }
   ],
   "messages": []

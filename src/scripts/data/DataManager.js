@@ -55,3 +55,25 @@ export const deletePost = postId => {
       .then(response => response.json())
       .then(getPosts)
 }
+
+// Fetch call for post edit ==========================================
+
+// First fetch call ensures we are working with the latest dataset
+export const getSinglePost = (postId) => {
+  return fetch(`http://localhost:8088/posts/${postId}`)
+    .then(response => response.json())
+};
+
+// Second fetch call fetches the data to edit it
+export const updatePost = postObj => {
+  return fetch(`http://localhost:8088/posts/${postObj.id}`, {
+      method: "PUT",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify(postObj)
+
+  })
+      .then(response => response.json())
+      .then(getPosts)
+}
