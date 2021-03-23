@@ -3,7 +3,7 @@ import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
 import { Footer, showFilteredPosts } from "./footer/footer.js";
 import { PostEntry, resetForm } from "./feed/PostEntry.js"
-import { PostEdit } from "./feed/PostEdit.js"
+import { postEdit } from "./feed/PostEdit.js"
 
 // Displays app components on the DOM ==========================================
 const showNavBar = () => {
@@ -103,9 +103,7 @@ applicationElement.addEventListener("click", event => {
 		const postId = event.target.id.split("__")[1];
 		console.log(postId)
 		deletePost(postId)
-		.then(response => {
-			showPostList();
-		})
+		.then(showPostList)
 	}
 })
 
@@ -116,17 +114,10 @@ applicationElement.addEventListener("click", event => {
 		const postId = event.target.id.split("__")[1];
 		getSinglePost(postId)
 		.then(response => {
-			showEdit(response);
+			postEdit(response);
 		})
 	}
 })
-
-// Displays edit form on the DOM
-
-const showEdit = (postObj) => {
-	const entryElement = document.querySelector(".entryForm");
-	entryElement.innerHTML = PostEdit(postObj);
-}
 
 // Post edited post event listener
 

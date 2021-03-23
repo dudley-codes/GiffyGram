@@ -1,7 +1,7 @@
 export const PostEntry = () => {
     return `
     <form class="newPost">
-    <h3>Create a new Post</h3>
+    <h3 id="create__update">Create a New Post</h3>
         <div>
             <input value=""
                     name="postTitle"
@@ -20,9 +20,11 @@ export const PostEntry = () => {
         <textarea name="postDescription"
             class="newPost__input newPost__description"
             placeholder="Story behind your gif..."></textarea>
-
-        <button id="newPost__submit">Save</button>
-        <button id="newPost__cancel">Cancel</button>
+        
+        <input type="hidden" value="" name="postId">
+        <input type="hidden" value="" name="postTime">	
+        <button id="newPost__submit" name="save">Save</button>
+        <button id="newPost__cancel" name="cancel">Cancel</button>
     </form>
     `
 };
