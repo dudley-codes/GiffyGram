@@ -4,13 +4,6 @@ export const getUsers = () => {
     .then(response => response.json())
 }
 
-// export const getPosts = () => {
-
-//     return fetch("http://localhost:8088/posts")
-//     .then(response => response.json())
-
-// }
-
 const loggedInUser = {
 	id: 1,
 	name: "Rick Sanchez",
@@ -39,7 +32,7 @@ export const getPosts = () => {
     })
 }
 
-// function that writes to the JSON file
+// function that writes to the JSON file ==========================
 export const createPost = postObj => {
   return fetch("http://localhost:8088/posts", {
       method: "POST",
@@ -47,7 +40,18 @@ export const createPost = postObj => {
           "Content-Type": "application/json"
       },
       body: JSON.stringify(postObj)
-
   })
       .then(response => response.json())
+}
+
+//Fetch call that deletes a post ==================================
+export const deletePost = postId => {
+  return fetch(`http://localhost:8088/posts/${postId}`, {
+      method: "DELETE",
+      headers: {
+          "Content-Type": "application/json"
+      }
+  })
+      .then(response => response.json())
+      .then(getPosts)
 }
