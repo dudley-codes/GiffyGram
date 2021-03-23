@@ -1,12 +1,12 @@
-import { getPosts, getUsers, getLoggedInUser, usePostCollection, createPost } from "./data/DataManager.js";
+import { getPosts, getUsers, getLoggedInUser, deletePost, createPost } from "./data/DataManager.js";
 import { PostList } from "./feed/PostList.js";
 import { NavBar } from "./nav/NavBar.js";
-import { Footer } from "./footer/footer.js";
+import { Footer, showFilteredPosts } from "./footer/footer.js";
 import { PostEntry, resetForm } from "./feed/PostEntry.js"
 
 
 
-// Query Selectors ==========================================
+// Displays app components on the DOM ==========================================
 const showNavBar = () => {
 	const navElement = document.querySelector("nav");
 	navElement.innerHTML = NavBar();
@@ -25,16 +25,6 @@ const showPostList = () => {
 	});
 };
 
-// const showPostEntry = () => {
-// 	const footerElement = document.querySelector(".entryForm");
-// 	footerElement.innerHTML = PostEntry();
-// };
-
-
-
-
-
-
 // Event Listeners ==========================================
 
 const applicationElement = document.querySelector(".giffygram");
@@ -44,8 +34,6 @@ applicationElement.addEventListener("click", (event) => {
 		console.log("You clicked on logout");
 	}
 });
-
-// Create new post event listeners==================================
 
 //Form reset if you hit cancel
 document.addEventListener("click", clickEvent => {
@@ -86,17 +74,7 @@ const showPostEntry = () => {
 	entryElement.innerHTML = PostEntry();
 	}
 
-// Create new post event listeners===================================
-
-
-
-// applicationElement.addEventListener("change", (event) => {
-// 	if (event.target.id === "yearSelection") {
-// 		const yearAsNumber = parseInt(event.target.value);
-
-// 		console.log(`User wants to see posts since ${yearAsNumber}`);
-// 	}
-// });
+// Currently unused event listeners -- IM, Logout===================================
 
 applicationElement.addEventListener("click", (event) => {
 	if (event.target.id === "directMessageIcon") {
@@ -117,30 +95,19 @@ applicationElement.addEventListener("click", (event) => {
 	}
 })
 
-// Filtered data =================================================
+// Delete post event listener =====================================
 
-
-applicationElement.addEventListener("change", event => {
-	if (event.target.id === "yearSelection") {
-	const yearAsNumber = parseInt(event.target.value)
-	console.log(`User wants to see posts since ${yearAsNumber}`)
-	  //invoke a filter function passing the year as an argument
-	showFilteredPosts(yearAsNumber);
+applicationElement.addEventListener("click", event => {
+	event.preventDefault();
+	if (event.target.id.startsWith("delete")) {
+		const postId = event.target.id.split("__")[1];
+		console.log(postId)
+		deletePost(postId)
+		.then(response => {
+			showPostList();
+		})
 	}
-	})
-
-	const showFilteredPosts = (year) => {
-	//get a copy of the post collection
-	const epoch = Date.parse(`01/01/${year}`);
-	//filter the data
-	const filteredData = usePostCollection().filter(singlePost => {
-		if (singlePost.timestamp >= epoch) {
-			return singlePost
-	}
-	})
-	const postElement = document.querySelector(".postList");
-		postElement.innerHTML = PostList(filteredData);
-	}
+})
 
 // Calling all imported functions===============================
 
@@ -150,6 +117,7 @@ const startGiffyGram = () => {
 	showNavBar();
 	showPostEntry();
 	getLoggedInUser();
+	showFilteredPosts();
 	
 	getUsers()
 		.then((data) => {
