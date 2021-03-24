@@ -1,4 +1,4 @@
-export const NavBar = () => {
+const NavBar = () => {
 	return `
         <nav class="navigation">
             <div class="navigation__item navigation__icon">
@@ -18,4 +18,9 @@ export const NavBar = () => {
             </div>
         </nav>
     `;
+};
+
+export const showNavBar = () => {
+	const navElement = document.querySelector("nav");
+	navElement.innerHTML = NavBar();
 };
