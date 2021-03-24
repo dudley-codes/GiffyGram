@@ -1,7 +1,7 @@
 import { usePostCollection } from "/scripts/data/DataManager.js"
 import { PostList } from "/scripts/feed/PostList.js"
 
-export const Footer = () => {
+const Footer = () => {
 
     // HTML to be returned to GiffyGram component
     return `
@@ -49,3 +49,8 @@ export  const showFilteredPosts = (year) => {
         } else if (filteredData.length > 0) {
             postCount.innerHTML = filteredData.length;}
 }
+
+export const showFooter = () => {
+	const footerElement = document.querySelector("footer");
+	footerElement.innerHTML = Footer();
+};
