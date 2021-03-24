@@ -1,32 +1,24 @@
 import { getPosts, getUsers, getLoggedInUser, deletePost, createPost, 
-		getSinglePost, updatePost, logoutUser } from "./data/DataManager.js";
+		getSinglePost, updatePost, logoutUser, loginUser, setLoggedInUser } from "./data/DataManager.js";
 import { showPostList } from "./feed/PostList.js";
 import { showNavBar } from "./nav/NavBar.js";
 import { showFooter, showFilteredPosts } from "./footer/footer.js";
 import { PostEntry, resetForm } from "./feed/PostEntry.js"
 import { postEdit } from "./feed/PostEdit.js"
+import { LoginForm } from "./auth/LoginForm.js";
+import { RegisterForm } from "./auth/RegisterForm.js";
 
-// Logout event Listener ==========================================
 const applicationElement = document.querySelector(".giffygram");
 
+// Logout event Listener ==========================================
 applicationElement.addEventListener("click", event => {
 	if (event.target.id === "logout") {
-		logoutUser();
-		console.log(getLoggedInUser());
+	  logoutUser();
+	  console.log(getLoggedInUser());
+	  sessionStorage.clear();
+	  checkForUser();
 	}
-})
-
-// Checks for logged in user
-const checkForUser = () => {
-	if (sessionStorage.getItem("user")){
-		setLoggedInUser(JSON.parse(sessionStorage.getItem("user")));
-	  startGiffyGram();
-	}else {
-		 showLoginRegister();
-	}
-}
-
-checkForUser();
+  })
 
 // Login form event listener
 applicationElement.addEventListener("click", event => {
@@ -61,6 +53,8 @@ const showLoginRegister = () => {
   const postElement = document.querySelector(".postList");
   postElement.innerHTML = "";
 }
+
+
 
 // Register event listener
 
@@ -215,3 +209,15 @@ const startGiffyGram = () => {
 });
 
 };
+
+// Checks for logged in user
+const checkForUser = () => {
+	if (sessionStorage.getItem("user")){
+		setLoggedInUser(JSON.parse(sessionStorage.getItem("user")));
+	startGiffyGram();
+	} else {
+		showLoginRegister();
+	}
+}
+
+checkForUser();

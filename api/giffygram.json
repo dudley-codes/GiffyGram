@@ -1,13 +1,13 @@
 {
   "users": [
     {
-      "name": "Rick Sanchez",
-      "email": "rick@getschwifty.net",
+      "name": "Rick",
+      "email": "rick@sanchez.com",
       "id": 1
     },
     {
-      "name": "Morty Smith",
-      "email": "mortys@getschiwfty.net",
+      "name": "Morty",
+      "email": "morty@smith.com",
       "id": 2
     }
   ],
