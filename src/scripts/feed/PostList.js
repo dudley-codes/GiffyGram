@@ -19,3 +19,8 @@ export const showPostList = () => {
 		postElement.innerHTML = PostList(allPosts);
 	});
 };
+
+export const showPostsByUser = () => {
+	const postElement = document.querySelector(".postList");
+	getPosts()
+}

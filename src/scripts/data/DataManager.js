@@ -1,9 +1,23 @@
 // Gets registered users from JSON server
+let allUsers = [];
+
+export const showAllUsers = () => {
+  return [...allUsers]
+};
+
 export const getUsers = () => {
 
     return fetch("http://localhost:8088/users")
     .then(response => response.json())
-}
+    .then((response) => {
+      allUsers = response
+      return response
+    })
+};
+
+getUsers()
+  .then(() => {console.log("All the users now are belong to us", showAllUsers())})
+
 
 // Sets default logged in user to an empty object.
 // Then exports data using a spread function.

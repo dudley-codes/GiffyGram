@@ -1,5 +1,5 @@
 import { getPosts, getUsers, getLoggedInUser, deletePost, createPost, 
-		getSinglePost, updatePost, logoutUser, loginUser, setLoggedInUser } from "./data/DataManager.js";
+        getSinglePost, updatePost, logoutUser, loginUser, setLoggedInUser } from "./data/DataManager.js";
 import { showPostList } from "./feed/PostList.js";
 import { showNavBar } from "./nav/NavBar.js";
 import { showFooter, showFilteredPosts } from "./footer/footer.js";
@@ -13,35 +13,35 @@ const applicationElement = document.querySelector(".giffygram");
 // Logout event Listener ==========================================
 applicationElement.addEventListener("click", event => {
 	if (event.target.id === "logout") {
-	  logoutUser();
-	  console.log(getLoggedInUser());
-	  sessionStorage.clear();
-	  checkForUser();
+		logoutUser();
+		console.log(getLoggedInUser());
+		sessionStorage.clear();
+		checkForUser();
 	}
-  })
+})
 
 // Login form event listener
 applicationElement.addEventListener("click", event => {
 	event.preventDefault();
 	if (event.target.id === "login__submit") {
 	  //collect all the details into an object
-	  const userObject = {
+	const userObject = {
 		name: document.querySelector("input[name='name']").value,
 		email: document.querySelector("input[name='email']").value
-	  }
-	  loginUser(userObject)
-	  .then(dbUserObj => {
+	}
+	loginUser(userObject)
+	.then(dbUserObj => {
 		if(dbUserObj){
-		  sessionStorage.setItem("user", JSON.stringify(dbUserObj));
-		  startGiffyGram();
+		sessionStorage.setItem("user", JSON.stringify(dbUserObj));
+		startGiffyGram();
 		}else {
 		  //got a false value - no user
-		  const entryElement = document.querySelector(".entryForm");
-		  entryElement.innerHTML = `<p class="center">That user does not exist. Please try again or register for your free account.</p> ${LoginForm()} <hr/> <hr/> ${RegisterForm()}`;
+		const entryElement = document.querySelector(".entryForm");
+		entryElement.innerHTML = `<p class="center">That user does not exist. Please try again or register for your free account.</p> ${LoginForm()} <hr/> <hr/> ${RegisterForm()}`;
 		}
-	  })
+		})
 	}
-  })
+})
 
 // If no logged in user, displays registration form
 const showLoginRegister = () => {
@@ -50,8 +50,8 @@ const showLoginRegister = () => {
 	//template strings can be used here too
 	entryElement.innerHTML = `${LoginForm()} <hr/> <hr/> ${RegisterForm()}`;
 	//make sure the post list is cleared out too
-  const postElement = document.querySelector(".postList");
-  postElement.innerHTML = "";
+	const postElement = document.querySelector(".postList");
+	postElement.innerHTML = "";
 }
 
 
@@ -62,17 +62,17 @@ applicationElement.addEventListener("click", event => {
 	event.preventDefault();
 	if (event.target.id === "register__submit") {
 	  //collect all the details into an object
-	  const userObject = {
+		const userObject = {
 		name: document.querySelector("input[name='registerName']").value,
 		email: document.querySelector("input[name='registerEmail']").value
-	  }
-	  registerUser(userObject)
-	  .then(dbUserObj => {
+	}
+	registerUser(userObject)
+	.then(dbUserObj => {
 		sessionStorage.setItem("user", JSON.stringify(dbUserObj));
 		startGiffyGram();
-	  })
+	})
 	}
-  })
+})
 
 //Form reset if you hit cancel
 document.addEventListener("click", clickEvent => {

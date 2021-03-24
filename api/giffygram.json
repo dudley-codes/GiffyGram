@@ -51,6 +51,22 @@
       "userId": 1,
       "timestamp": 1615482419138,
       "id": 7
+    },
+    {
+      "title": "Another post by Morty",
+      "imageURL": "https://media0.giphy.com/media/cOKjNdJDbqNCm4n0Jm/giphy.gif?cid=ecf05e47wavwsoy50a9kbvt1klunezh8wxvsprqhs83m26aa&rid=giphy.gif",
+      "description": "",
+      "userId": 2,
+      "timestamp": 1616610808052,
+      "id": 9
+    },
+    {
+      "title": "I solved it!",
+      "imageURL": "https://media0.giphy.com/media/cOKjNdJDbqNCm4n0Jm/giphy.gif?cid=ecf05e47wavwsoy50a9kbvt1klunezh8wxvsprqhs83m26aa&rid=giphy.gif",
+      "description": "It works!!!!!!!",
+      "userId": 2,
+      "timestamp": 1616621846334,
+      "id": 10
     }
   ],
   "messages": []
