@@ -53,7 +53,7 @@
       "id": 7
     },
     {
-      "title": "Another post by Morty",
+      "title": "Another post",
       "imageURL": "https://media0.giphy.com/media/cOKjNdJDbqNCm4n0Jm/giphy.gif?cid=ecf05e47wavwsoy50a9kbvt1klunezh8wxvsprqhs83m26aa&rid=giphy.gif",
       "description": "",
       "userId": 2,
@@ -67,7 +67,325 @@
       "userId": 2,
       "timestamp": 1616621846334,
       "id": 10
+    },
+    {
+      "title": "Learning Javascript",
+      "imageURL": "https://media0.giphy.com/media/cOKjNdJDbqNCm4n0Jm/giphy.gif?cid=ecf05e47wavwsoy50a9kbvt1klunezh8wxvsprqhs83m26aa&rid=giphy.gif",
+      "description": "",
+      "userId": 2,
+      "timestamp": 1616695323187,
+      "id": 11
+    },
+    {
+      "title": "Learning Javascript",
+      "imageURL": "https://media0.giphy.com/media/cOKjNdJDbqNCm4n0Jm/giphy.gif?cid=ecf05e47wavwsoy50a9kbvt1klunezh8wxvsprqhs83m26aa&rid=giphy.gif",
+      "description": "sdfasdf",
+      "userId": 2,
+      "timestamp": 1616695334607,
+      "id": 12
     }
   ],
-  "messages": []
+  "messages": [],
+  "userLikes": [
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 2
+    },
+    {
+      "postId": "6",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "postId": "4",
+      "userId": 2,
+      "id": 4
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 8
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 9
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 10
+    },
+    {
+      "postId": "7",
+      "userId": 2,
+      "id": 11
+    },
+    {
+      "postId": "7",
+      "userId": 2,
+      "id": 12
+    },
+    {
+      "postId": "7",
+      "userId": 2,
+      "id": 13
+    },
+    {
+      "postId": "6",
+      "userId": 2,
+      "id": 14
+    },
+    {
+      "postId": "6",
+      "userId": 2,
+      "id": 15
+    },
+    {
+      "postId": "6",
+      "userId": 2,
+      "id": 16
+    },
+    {
+      "postId": "6",
+      "userId": 2,
+      "id": 17
+    },
+    {
+      "postId": "6",
+      "userId": 2,
+      "id": 18
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 19
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 20
+    },
+    {
+      "postId": "3",
+      "userId": 2,
+      "id": 21
+    },
+    {
+      "postId": "3",
+      "userId": 2,
+      "id": 22
+    },
+    {
+      "postId": "3",
+      "userId": 2,
+      "id": 23
+    },
+    {
+      "postId": "3",
+      "userId": 2,
+      "id": 24
+    },
+    {
+      "postId": "6",
+      "userId": 2,
+      "id": 25
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 26
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 27
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 28
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 29
+    },
+    {
+      "postId": "9",
+      "userId": 2,
+      "id": 30
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 31
+    },
+    {
+      "postId": "4",
+      "userId": 2,
+      "id": 32
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 33
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 34
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 35
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 36
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 37
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 38
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 39
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 40
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 41
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 42
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 43
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 44
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 45
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 46
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 47
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 48
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 49
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 50
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 51
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 52
+    },
+    {
+      "postId": "10",
+      "userId": 2,
+      "id": 53
+    },
+    {
+      "postId": "12",
+      "userId": 2,
+      "id": 54
+    },
+    {
+      "postId": "12",
+      "userId": 2,
+      "id": 55
+    },
+    {
+      "postId": "12",
+      "userId": 2,
+      "id": 56
+    },
+    {
+      "postId": "12",
+      "userId": 2,
+      "id": 57
+    },
+    {
+      "postId": "12",
+      "userId": 2,
+      "id": 58
+    },
+    {
+      "postId": "12",
+      "userId": 2,
+      "id": 59
+    },
+    {
+      "postId": "12",
+      "userId": 2,
+      "id": 60
+    }
+  ]
 }
