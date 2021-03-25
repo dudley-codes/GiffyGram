@@ -1,5 +1,5 @@
 import { getPosts, getUsers, getLoggedInUser, deletePost, createPost, 
-        getSinglePost, updatePost, logoutUser, loginUser, setLoggedInUser } from "./data/DataManager.js";
+        getSinglePost, updatePost, logoutUser, loginUser, setLoggedInUser, postLike } from "./data/DataManager.js";
 import { showPostList } from "./feed/PostList.js";
 import { showNavBar } from "./nav/NavBar.js";
 import { showFooter, showFilteredPosts } from "./footer/footer.js";
@@ -189,6 +189,19 @@ applicationElement.addEventListener("click", event => {
 	}
 })
 
+// Like button event listener
+applicationElement.addEventListener("click", event => {
+
+	event.preventDefault();
+	if (event.target.id.startsWith("like")) {
+	  const likeObject = {
+		 postId: event.target.id.split("__")[1],
+		 userId: getLoggedInUser().id
+	  }
+	  postLike(likeObject)
+		.then(showPostList)
+	}
+  })
 // Calling all imported functions===============================
 
 const startGiffyGram = () => {
